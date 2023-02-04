@@ -5,11 +5,11 @@ import Header from './Header';
 
 function App() {
   return (
-    <>
+    <div className='view-port'>
       <Header/>
       <Main/>
       <Footer/>
-    </>
+    </div>
   );
 }
 
