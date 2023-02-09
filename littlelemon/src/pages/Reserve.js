@@ -1,11 +1,11 @@
 import Header from '../Header'
-import Booking from '../Booking'
+import Bookings from '../Bookings'
 import Footer from '../Footer'
 export default function Reserve() {
     return (
         <div className='view-port'>
             <Header />
-            <Booking />
+            <Bookings />
             <Footer/>
         </div>
     )

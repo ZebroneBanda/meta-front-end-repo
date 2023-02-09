@@ -1,12 +1,14 @@
-import { useState } from "react";
+import React, { useState } from "react";
 
-export default function Booking() {
+export default function Bookings() {
     const [resDate, setResDate] = useState("");
     const [resTime, setResTime] = useState("");
     const [resGuests, setResGuests] = useState("");
-    const [resOccass, setResOccass] = useState("");
+    const [resOccasion, setResOccasion] = useState("");
     const [resMsg, setResMsg] = useState("");
 
+    const availableTime = ["17:00","18:00","19:00","20:00","21:00","22:00"];
+    const occasion = ["Birthday","Anniversary"];
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -14,7 +16,7 @@ export default function Booking() {
         setResDate("");
         setResTime("");
         setResGuests("");
-        setResOccass("");
+        setResOccasion("");
     }
     
     return (
@@ -22,23 +24,17 @@ export default function Booking() {
             <h1 className="main-header">Booking</h1>
             <label className="resMsg">{resMsg}</label>
             <form onSubmit={handleSubmit}>
-                <label for="res-date">Choose date</label>
+                <label htmlFor="res-date">Choose date</label>
                 <input type="date" id="res-date" value={resDate} onChange={e => setResDate(e.target.value)}/>
-                <label for="res-time">Choose time</label>
-                <select id="res-time " value={resTime} onChange={e => setResTime(e.target.value)}>
-                    <option>17:00</option>
-                    <option>18:00</option>
-                    <option>19:00</option>
-                    <option>20:00</option>
-                    <option>21:00</option>
-                    <option>22:00</option>
+                <label htmlFor="res-time">Choose time</label>
+                <select id="res-time" value={resTime} onChange={e => setResTime(e.target.value)}>
+                    { availableTime.map(opt => <option>{opt}</option>) }
                 </select>
-                <label for="guests">Number of guests</label>
+                <label htmlFor="guests">Number of guests</label>
                 <input type="number" placeholder="1" min="1" max="10" id="guests" value={resGuests} onChange={e => setResGuests(e.target.value)}/>
-                <label for="occasion">Occasion</label>
-                <select id="occasion" value={resOccass} onChange={e => setResOccass(e.target.value)}>
-                    <option>Birthday</option>
-                    <option>Anniversary</option>
+                <label htmlFor="occasion">Occasion</label>
+                <select id="occasion" value={resOccasion} onChange={e => setResOccasion(e.target.value)}>
+                    { occasion.map(opt=><option>{opt}</option>) }
                 </select>
                 <input disabled={!resDate | !resGuests} type="submit" value="Make your reservation" />
             </form>
