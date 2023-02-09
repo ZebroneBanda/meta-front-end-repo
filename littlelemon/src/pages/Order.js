@@ -4,7 +4,7 @@ export default function Order() {
     return (
         <div className='view-port'>
             <Header />
-            <h1>Order online Page</h1>
+            <h1 className="main-header">Order online Page</h1>
             <Footer/>
         </div>
     )

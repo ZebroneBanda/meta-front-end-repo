@@ -2,6 +2,7 @@ import bruchetta from './img/bruchetta.png';
 import greek_salad from './img/greek_salad.jpg';
 import lemon_dessert from './img/lemon_dessert.jpg';
 import restauranfood from './img/restauranfood.jpg';
+import {Link} from 'react-router-dom';
 
 export default function Main() {
     return (
@@ -17,7 +18,7 @@ export default function Main() {
                         <p>Welcome to Little lemon restaurant online platform. We are here to serve your quicker 
                             and better.
                         </p>
-                        <button>Reserve a Table</button>
+                        <button><Link to="/reserve">Reserve a Table</Link></button>
                     </div>
                 </section>
                 <section className='second-section'>
