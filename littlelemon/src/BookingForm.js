@@ -1,18 +1,17 @@
 import React, { useState } from "react";
 
-export default function Bookings() {
+export default function BookingsForm({ availableTimes, dispatch }) {
     const [resDate, setResDate] = useState("");
     const [resTime, setResTime] = useState("");
     const [resGuests, setResGuests] = useState("");
     const [resOccasion, setResOccasion] = useState("");
     const [resMsg, setResMsg] = useState("");
 
-    const availableTime = ["17:00","18:00","19:00","20:00","21:00","22:00"];
     const occasion = ["Birthday","Anniversary"];
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        setResMsg("Reservation made successfully!");
+        setResMsg("Reservation submitted successfully!");
         setResDate("");
         setResTime("");
         setResGuests("");
@@ -28,7 +27,7 @@ export default function Bookings() {
                 <input type="date" id="res-date" value={resDate} onChange={e => setResDate(e.target.value)}/>
                 <label htmlFor="res-time">Choose time</label>
                 <select id="res-time" value={resTime} onChange={e => setResTime(e.target.value)}>
-                    { availableTime.map(opt => <option>{opt}</option>) }
+                    { availableTimes.map(opt => <option>{opt}</option>) }
                 </select>
                 <label htmlFor="guests">Number of guests</label>
                 <input type="number" placeholder="1" min="1" max="10" id="guests" value={resGuests} onChange={e => setResGuests(e.target.value)}/>
